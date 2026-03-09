@@ -1,0 +1,61 @@
+:root {
+    --primary: #6366f1;
+    --bg-main: #f8fafc;
+    --sidebar: #1e293b;
+    --text-dark: #0f172a;
+    --high: #ef4444;
+    --medium: #f59e0b;
+    --low: #10b981;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background: var(--bg-main); color: var(--text-dark); overflow: hidden; }
+
+.app-container { display: flex; height: 100vh; }
+
+/* Sidebar */
+.sidebar { width: 280px; background: var(--sidebar); color: white; padding: 40px 25px; display: flex; flex-direction: column; gap: 30px; }
+.brand h2 { font-size: 1.5rem; letter-spacing: -1px; }
+.glass-select { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 12px; border-radius: 10px; width: 100%; outline: none; margin-top: 10px; }
+.info-box { background: rgba(99, 102, 241, 0.1); padding: 15px; border-radius: 12px; font-size: 0.85rem; line-height: 1.5; margin-top: auto; }
+
+/* Main Content */
+.main-content { flex: 1; padding: 40px; overflow-y: auto; }
+.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.btn-nav { background: white; border: 1px solid #e2e8f0; width: 40px; height: 40px; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+.btn-nav:hover { background: var(--primary); color: white; }
+
+/* Calendar Grid */
+.calendar-card { background: white; border-radius: 20px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-weight: 700; color: #94a3b8; margin-bottom: 15px; font-size: 0.8rem; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.day { min-height: 100px; background: #fcfcfd; border: 1px solid #f1f5f9; border-radius: 12px; padding: 10px; cursor: pointer; transition: 0.2s; position: relative; }
+.day:hover { border-color: var(--primary); transform: translateY(-2px); background: white; }
+
+/* Task Badges */
+.task-badge { font-size: 0.7rem; padding: 4px 8px; border-radius: 6px; color: white; margin-top: 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-weight: 600; }
+.High { background: var(--high); }
+.Medium { background: var(--medium); }
+.Low { background: var(--low); }
+.completed { opacity: 0.5; text-decoration: line-through; background: #cbd5e1 !important; }
+
+/* --- Fixed Modal Styling --- */
+.modal { display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(4px); z-index: 1000; }
+.modal-content { background: white; margin: 8vh auto; width: 95%; max-width: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.2); animation: slideUp 0.3s ease; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.modal-header { padding: 20px 25px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+.close-modal { cursor: pointer; font-size: 24px; color: #94a3b8; }
+
+#taskForm { padding: 25px; }
+.input-group { margin-bottom: 18px; }
+.input-group label { display: block; font-size: 0.85rem; font-weight: 600; color: #64748b; margin-bottom: 6px; }
+.input-group input, .input-group textarea, .input-group select { width: 100%; padding: 12px; border: 1.5px solid #e2e8f0; border-radius: 10px; outline: none; }
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.btn-primary { width: 100%; padding: 14px; background: var(--primary); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 10px; }
+.action-row { display: flex; gap: 10px; margin-top: 15px; }
+.btn-del { background: #fee2e2; color: #ef4444; border: none; padding: 12px; border-radius: 10px; flex: 1; cursor: pointer; font-weight: 600; }
+.btn-comp { background: #dcfce7; color: #10b981; border: none; padding: 12px; border-radius: 10px; flex: 1; cursor: pointer; font-weight: 600; }
+
+@media (max-width: 800px) { .sidebar { display: none; } }

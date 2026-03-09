@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart To-Do Calendar | DSL 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>Task Genie</h2>
+                <p>APTECH DSL 2026</p>
+            </div>
+            
+            <div class="filter-section">
+                <label>Filter Tasks</label>
+                <select id="taskFilter" class="glass-select">
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div class="info-box">
+                <p>Click any date to manage your tasks. Data is saved locally.</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="calendar-header">
+                <h1 id="monthYear"></h1>
+                <div class="nav-controls">
+                    <button id="prevMonth" class="btn-nav">←</button>
+                    <button id="nextMonth" class="btn-nav">→</button>
+                </div>
+            </header>
+
+            <div class="calendar-card">
+                <div class="weekdays">
+                    <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+            </div>
+        </main>
+    </div>
+
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">New Task</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <form id="taskForm">
+                <input type="hidden" id="taskDate">
+                <input type="hidden" id="editIndex">
+                
+                <div class="input-group">
+                    <label>Task Title</label>
+                    <input type="text" id="title" required placeholder="What needs to be done?">
+                </div>
+                
+                <div class="input-group">
+                    <label>Description</label>
+                    <textarea id="description" rows="3" placeholder="Add more details..."></textarea>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Priority</label>
+                        <select id="priority">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Due Time</label>
+                        <input type="time" id="dueTime">
+                    </div>
+                </div>
+                
+                <div class="modal-footer" id="modalFooter">
+                    <button type="submit" id="saveBtn" class="btn-primary">Save Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
